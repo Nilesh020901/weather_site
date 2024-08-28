@@ -11,8 +11,8 @@ def index(request):
         city=request.POST['city']
         # source contain JSON data from API 
         source=urllib.request.urlopen(
-            'http://api.openweathermap.org/data/2.5/weather?q =' + city + '&appid = your_api_key_here').read()
-        )
+            'http://api.openweathermap.org/data/2.5/weather?q =' + city + '&appid = 34390a97d43446de8bbca2d7560942a2').read()
+        
         # converting JSON data to a dictionary 
         list_of_data=json.loads(source)
 
@@ -25,6 +25,6 @@ def index(request):
             "humidity": str(list_of_data['weather']['humidity']),
         }
         print(data)
-        else:
+    else:
             data={}
-        return render(request, "weather/index.html", data)
+    return render(request, "weather/index.html", data)
